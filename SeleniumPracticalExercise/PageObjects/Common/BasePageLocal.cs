@@ -1,8 +1,10 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+
 
 namespace SeleniumPracticalExercise.PageObjects.Common
 {
@@ -95,6 +97,7 @@ namespace SeleniumPracticalExercise.PageObjects.Common
 
             throw new Exception($"Not able to get 'value' from element <{locator}> within {timeOut}s.");
         }
+
 
         /// <summary>
         /// Enters the provided text in the specified element.
