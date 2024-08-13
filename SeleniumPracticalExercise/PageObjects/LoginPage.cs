@@ -5,21 +5,18 @@ namespace SeleniumPracticalExercise.PageObjects
 {
     public class LoginPage : BasePageLocal
     {
-        private readonly By TxtUserName = By.Name("username"); // locate username
-        private readonly By TxtPassword = By.Name("password"); // locate password
-        private readonly By BtnSubmit = By.TagName("button");  // locate Submit button
-
+        private readonly By TxtUserNameLocator = By.CssSelector("input[name='username']"); 
+        private readonly By TxtPasswordLocator = By.CssSelector("input[name='password']"); 
+        private readonly By BtnSubmitLocator = By.CssSelector("button");  
         public LoginPage(IWebDriver driver) : base(driver)
         {
+
         }
-
-      
-
         public void Login(string username, string password)
         {
-            SendKeys(TxtUserName,username);  
-            SendKeys(TxtPassword,password);
-            Click(BtnSubmit);
+            SendKeys(TxtUserNameLocator,username);  
+            SendKeys(TxtPasswordLocator,password);
+            Click(BtnSubmitLocator);
         }
     }
 }
