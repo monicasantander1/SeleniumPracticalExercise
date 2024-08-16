@@ -4,10 +4,10 @@ using SeleniumPracticalExercise.PageObjects.Common;
 namespace SeleniumPracticalExercise.PageObjects
 {
     public class LoginPage : BasePageLocal
-    {
-        private readonly By _txtUserNameLocator = By.CssSelector("input[name='username']"); 
-        private readonly By _txtPasswordLocator = By.CssSelector("input[name='password']"); 
-        private readonly By _btnSubmitLocator = By.CssSelector("button");  
+    { 
+        private readonly By _passwordTextboxLocator = By.CssSelector("input[name='password']"); 
+        private readonly By _submitButtonLocator = By.CssSelector("button");
+        private readonly By _userNameTextboxLocator = By.CssSelector("input[name='username']");
 
         public LoginPage(IWebDriver driver) : base(driver)
         {
@@ -18,9 +18,9 @@ namespace SeleniumPracticalExercise.PageObjects
         /// </summary>
         public void Login(string username, string password)
         {
-            SendKeys(_txtUserNameLocator,username);  
-            SendKeys(_txtPasswordLocator,password);
-            Click(_btnSubmitLocator);
+            SendKeys(_userNameTextboxLocator, username);  
+            SendKeys(_passwordTextboxLocator, password);
+            Click(_submitButtonLocator);
         }
     }
 }
