@@ -1,15 +1,7 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using SeleniumPracticalExercise.TestCases.Common;
 using SeleniumPracticalExercise.Common;
-using static SeleniumPracticalExercise.Common.Utils;
-using static SeleniumPracticalExercise.PageObjects.Common.BasePageLocal;
-using SeleniumPracticalExercise.PageObjects.Common;
-using System.Security.Cryptography.X509Certificates;
 using SeleniumPracticalExercise.PageObjects;
+using SeleniumPracticalExercise.TestCases.Common;
 
 class AddEmployee : BaseTestLocal
 
@@ -21,7 +13,7 @@ class AddEmployee : BaseTestLocal
             string username = "Admin"; 
             string password = "admin123"; 
             string firstName = Utils.GenerateRandomString(6); 
-            string lastName = Utils.GenerateRandomString(8); 
+            string lastName = Utils.GenerateRandomString(8);
 
             // Steps to automate:
             // 1. Navigate to https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
@@ -50,13 +42,15 @@ class AddEmployee : BaseTestLocal
             leftNavPanel.ClickPIM(); 
 
             // 8. Search for the employee you just created by Employee Id
-            employeeInformationPage.SetTxtBoxEmpID(storeEmployeeID); 
-
-            employeeInformationPage.SearchButton();  
+            employeeInformationPage.SetTxtBoxEmpID(storeEmployeeID);
 
             // 9. In the employee search results, use NUnit asserts to validate that Id, First Name, and Last Name are correct
-            employeeInformationPage.verifyEmployeeId(storeEmployeeID);
-            employeeInformationPage.verifyName(firstName, lastName);
-        }
-        
+            string actualIdResults = employeeInformationPage.verifyEmployeeId();
+            string actualFirstNameResults = employeeInformationPage.verifyFirstNameResults();
+            string actualLastNameResults = employeeInformationPage.verifyLasttNameResults();
+
+            Assert.AreEqual(storeEmployeeID, actualIdResults, "ID does not match expected value.");
+            Assert.AreEqual(firstName, actualFirstNameResults, "First name does not match expected value.");
+            Assert.AreEqual(lastName, actualLastNameResults, "Last name does not match expected value.");
     }
+}

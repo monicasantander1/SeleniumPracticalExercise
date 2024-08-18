@@ -1,11 +1,7 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V125.CSS;
-using OpenQA.Selenium.DevTools.V125.Page;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using SeleniumPracticalExercise.PageObjects.Common;
-using System.Threading;
 
 
 namespace SeleniumPracticalExercise.PageObjects
