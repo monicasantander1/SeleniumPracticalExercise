@@ -14,7 +14,7 @@ namespace SeleniumPracticalExercise.PageObjects
         /// <summary>
         /// Click PIM on Left Navigation Panel
         /// </summary>
-        public void ClickPIM()
+        public void ClickPim()
         {
             Click(_pimButtonLocator);
         }

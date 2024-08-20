@@ -155,7 +155,7 @@ namespace SeleniumPracticalExercise.PageObjects.Common
             return Driver.FindElement(locator);
         }
 
-        /// **<summary>
+        /// <summary>
         /// Finds the element using the provided wait condition
         /// </summary>
         /// <param name="waitCondition">The wait condition can be an ExpectedCondition or a custom wait that returns an IWebElement</param>

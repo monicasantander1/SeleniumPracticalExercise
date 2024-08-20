@@ -6,11 +6,11 @@ namespace SeleniumPracticalExercise.PageObjects
 {
     public class EmployeeInformationPage : BasePageLocal
     {
-        private readonly By _actualFirstNameLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][3]/div");
-        private readonly By _actualIDLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][2]/div");
-        private readonly By _actualLastNameLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][4]/div");
         private readonly By _addButtonLocator = By.CssSelector("div.orangehrm-header-container > button");
-        private readonly By _employeeIDTxtBoxLocator = By.CssSelector("div.oxd-input-group input.oxd-input"); 
+        private readonly By _employeeIdFieldLocator = By.CssSelector("div.oxd-input-group input.oxd-input");
+        private readonly By _firstNameResultsLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][3]/div");
+        private readonly By _idResultsLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][2]/div");
+        private readonly By _lastNameResultsLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][4]/div");
         private readonly By _searchButtonLocator = By.CssSelector("button[type='submit']");
 
         public EmployeeInformationPage(IWebDriver driver) : base(driver)
@@ -18,49 +18,46 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// PIM button
-        /// this is the first time on page where we....
-        /// Click Add Button
-        /// Enter text in Firstname field and LastName field
+        /// Clicks the Add Button
         /// </summary>
-        public void AddButton()
+        public void ClickAdd()
         {
            Click(_addButtonLocator);
         }
 
         /// <summary>
-        /// this is the second time on page where we...... 
-        /// search for emp id textbox and insert stored ID
+        /// search for employee ID field and insert stored ID
         /// then we click search button
         /// </summary>
+        /// <param name="storeEmployeeID"></param>
         public void SetTxtBoxEmpID(string storeEmployeeID)
         {
-            EditBoxSendKeysAndVerify(_employeeIDTxtBoxLocator, storeEmployeeID);
+            EditBoxSendKeysAndVerify(_employeeIdFieldLocator, storeEmployeeID);
             Click(_searchButtonLocator);
         }
 
         /// <summary>
-        ///  this is to verify ID # in search result
+        ///  Grabbing the Text from the ID in the search results 
         /// </summary>
-        public string verifyEmployeeId()
+        public string VerifyEmployeeId()
         {
-            return GetText(_actualIDLocator);
+            return GetText(_idResultsLocator);
         }
 
         /// <summary>
-        ///  this is to verify first name in search result
+        ///  Grabbing the text from the first name in search result
         /// </summary>
-        public string verifyFirstNameResults()
+        public string VerifyFirstNameResults()
         {
-            return GetText(_actualFirstNameLocator);
+            return GetText(_firstNameResultsLocator);
         }
 
         /// <summary>
-        ///  this is to verify last name in search result
+        ///  Grabbing the text from the last name in search result
         /// </summary>
-        public string verifyLasttNameResults()
+        public string VerifyLastNameResults()
         {
-            return GetText(_actualLastNameLocator);
+            return GetText(_lastNameResultsLocator);
         }
     }
 }

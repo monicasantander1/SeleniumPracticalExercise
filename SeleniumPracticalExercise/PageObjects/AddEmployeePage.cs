@@ -20,9 +20,9 @@ namespace SeleniumPracticalExercise.PageObjects
         /// <summary>
         /// Enter Firstname & Lastname
         /// then Click Save
-        /// did stale so we can wait  for element to save. if not it will not find element later
+        /// did stale so we can wait for element to save. 
         /// </summary>
-        public void EnterNames(string firstname, string lastname)
+        public void SetEnterNames(string firstname, string lastname)
         {
             SendKeys(_firstNameTxtBoxLocator, firstname);
             SendKeys(_lastNameTxtBoxLocator, lastname);
@@ -32,9 +32,9 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// get Emp ID value & returns the ID #
+        /// get Employee Id value & returns the Id #
         /// </summary>
-        public string GetIDNum() 
+        public string GetIdNum() 
         {                 
             return GetValue(_employeeIdLocator); 
         } 
