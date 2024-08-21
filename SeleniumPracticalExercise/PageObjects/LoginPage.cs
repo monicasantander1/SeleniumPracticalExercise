@@ -5,9 +5,9 @@ namespace SeleniumPracticalExercise.PageObjects
 {
     public class LoginPage : BasePageLocal
     { 
-        private readonly By _passwordTextboxLocator = By.CssSelector("input[name='password']"); 
+        private readonly By _passwordFieldLocator = By.CssSelector("input[name='password']"); 
         private readonly By _submitButtonLocator = By.CssSelector("button");
-        private readonly By _userNameTextboxLocator = By.CssSelector("input[name='username']");
+        private readonly By _userNameFieldLocator = By.CssSelector("input[name='username']");
 
         public LoginPage(IWebDriver driver) : base(driver)
         {
@@ -18,8 +18,8 @@ namespace SeleniumPracticalExercise.PageObjects
         /// </summary>
         public void Login(string username, string password)
         {
-            SendKeys(_userNameTextboxLocator, username);  
-            SendKeys(_passwordTextboxLocator, password);
+            SendKeys(_userNameFieldLocator, username);  
+            SendKeys(_passwordFieldLocator, password);
             Click(_submitButtonLocator);
         }
     }

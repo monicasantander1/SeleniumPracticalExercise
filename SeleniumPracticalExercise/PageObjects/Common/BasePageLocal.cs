@@ -4,7 +4,6 @@ using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-
 namespace SeleniumPracticalExercise.PageObjects.Common
 {
     public class BasePageLocal
@@ -93,10 +92,8 @@ namespace SeleniumPracticalExercise.PageObjects.Common
                     // do nothing, loop again
                 }
             }
-
             throw new Exception($"Not able to get 'value' from element <{locator}> within {timeOut}s.");
         }
-
 
         /// <summary>
         /// Enters the provided text in the specified element.
@@ -141,7 +138,6 @@ namespace SeleniumPracticalExercise.PageObjects.Common
                     // do nothing, loop again
                 }
             }
-
             throw new Exception($"Not able to .SendKeys() to element <{locator}> within {timeOut}s.");
         }
 
@@ -207,7 +203,6 @@ namespace SeleniumPracticalExercise.PageObjects.Common
                     // do nothing, loop again
                 }
             }
-
             throw new Exception($"Not able to get .Text from element <{locator}> within {timeOut}s.");
         }
 

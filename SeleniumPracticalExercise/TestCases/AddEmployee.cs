@@ -4,7 +4,6 @@ using SeleniumPracticalExercise.PageObjects;
 using SeleniumPracticalExercise.TestCases.Common;
 
 class AddEmployee : BaseTestLocal
-
     {
         [Test]
         [Category("Add Employee")]
@@ -41,15 +40,15 @@ class AddEmployee : BaseTestLocal
             leftNavPanel.ClickPim(); 
 
             // 8. Search for the employee you just created by Employee Id
-            employeeInformationPage.SetTxtBoxEmpID(storeEmployeeID);
+            employeeInformationPage.SetEmployeeIdField(storeEmployeeID);
 
             // 9. In the employee search results, use NUnit asserts to validate that Id, First Name, and Last Name are correct
-            string actualIdResults = employeeInformationPage.VerifyEmployeeId();
-            string actualFirstNameResults = employeeInformationPage.VerifyFirstNameResults();
-            string actualLastNameResults = employeeInformationPage.VerifyLastNameResults();
+            string verifyIdResults = employeeInformationPage.EmployeeIdSearchResults();
+            string verifyFirstNameResults = employeeInformationPage.FirstNameSearchResults();
+            string verifyLastNameResults = employeeInformationPage.LastNameSearchResults();
 
-            Assert.AreEqual(storeEmployeeID, actualIdResults, "Verify Employee ID does not match expected value.");
-            Assert.AreEqual(firstName, actualFirstNameResults, "Verify First Name Results does not match expected value.");
-            Assert.AreEqual(lastName, actualLastNameResults, "Verify Last Name Results does not match expected value.");
+            Assert.AreEqual(storeEmployeeID, verifyIdResults, "Verify Employee ID does not match expected value.");
+            Assert.AreEqual(firstName, verifyFirstNameResults, "Verify First Name Results does not match expected value.");
+            Assert.AreEqual(lastName, verifyLastNameResults, "Verify Last Name Results does not match expected value.");
     }
 }

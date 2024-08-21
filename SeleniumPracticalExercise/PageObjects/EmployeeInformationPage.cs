@@ -30,32 +30,32 @@ namespace SeleniumPracticalExercise.PageObjects
         /// then we click search button
         /// </summary>
         /// <param name="storeEmployeeID"></param>
-        public void SetTxtBoxEmpID(string storeEmployeeID)
+        public void SetEmployeeIdField(string storeEmployeeID)
         {
             EditBoxSendKeysAndVerify(_employeeIdFieldLocator, storeEmployeeID);
             Click(_searchButtonLocator);
         }
 
         /// <summary>
-        ///  Grabbing the Text from the ID in the search results 
+        ///  Grabbing the Text from the ID in the search results to verify
         /// </summary>
-        public string VerifyEmployeeId()
+        public string EmployeeIdSearchResults()
         {
             return GetText(_idResultsLocator);
         }
 
         /// <summary>
-        ///  Grabbing the text from the first name in search result
+        ///  Grabbing the text from the first name in search result to verify
         /// </summary>
-        public string VerifyFirstNameResults()
+        public string FirstNameSearchResults()
         {
             return GetText(_firstNameResultsLocator);
         }
 
         /// <summary>
-        ///  Grabbing the text from the last name in search result
+        ///  Grabbing the text from the last name in search result to verify
         /// </summary>
-        public string VerifyLastNameResults()
+        public string LastNameSearchResults()
         {
             return GetText(_lastNameResultsLocator);
         }
