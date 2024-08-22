@@ -17,11 +17,11 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// Enter Firstname & Lastname
-        /// then Click Save
-        /// did stale so we can wait for element to save. 
+        /// Enter First and Last name
         /// </summary>
-        public void SetEnterNames(string firstname, string lastname)
+        /// <param name="firstname"></param>
+        /// <param name="lastname"></param>
+        public void SetNames(string firstname, string lastname)
         {
             SendKeys(_firstNameFieldLocator, firstname);
             SendKeys(_lastNameFieldLocator, lastname);
@@ -31,9 +31,10 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// get Employee Id value & returns the Id #
+        /// get Employee Id value & returns Id #
         /// </summary>
-        public string GetIdNum() 
+        /// <returns></returns>
+        public string GetEmployeeId() 
         {                 
             return GetValue(_employeeIdLocator); 
         } 

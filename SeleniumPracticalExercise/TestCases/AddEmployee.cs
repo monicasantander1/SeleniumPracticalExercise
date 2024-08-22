@@ -33,8 +33,8 @@ class AddEmployee : BaseTestLocal
             // 6. Get the Employee Id for use later - using VerifyEmployee POM
             // 7. Click Save
             AddEmployeePage addEmployeePage = new AddEmployeePage(Driver.Value);
-            string storeEmployeeID = addEmployeePage.GetIdNum();
-            addEmployeePage.SetEnterNames(firstName, lastName);      
+            string storeEmployeeID = addEmployeePage.GetEmployeeId();
+            addEmployeePage.SetNames(firstName, lastName);      
 
             // 8. Click "PIM" in the left nav
             leftNavPanel.ClickPim(); 
@@ -43,12 +43,12 @@ class AddEmployee : BaseTestLocal
             employeeInformationPage.SetEmployeeIdField(storeEmployeeID);
 
             // 9. In the employee search results, use NUnit asserts to validate that Id, First Name, and Last Name are correct
-            string verifyIdResults = employeeInformationPage.EmployeeIdSearchResults();
-            string verifyFirstNameResults = employeeInformationPage.FirstNameSearchResults();
-            string verifyLastNameResults = employeeInformationPage.LastNameSearchResults();
-
-            Assert.AreEqual(storeEmployeeID, verifyIdResults, "Verify Employee ID does not match expected value.");
-            Assert.AreEqual(firstName, verifyFirstNameResults, "Verify First Name Results does not match expected value.");
-            Assert.AreEqual(lastName, verifyLastNameResults, "Verify Last Name Results does not match expected value.");
+            string actualIdResults = employeeInformationPage.GetEmployeeIdSearchResults();
+            string actualFirstNameResults = employeeInformationPage.GetFirstNameSearchResults();
+            string actualLastNameResults = employeeInformationPage.GetLastNameSearchResults();
+            
+            Assert.AreEqual(storeEmployeeID, actualIdResults, "Verify Employee ID.");
+            Assert.AreEqual(firstName, actualFirstNameResults, "Verify First Name.");
+            Assert.AreEqual(lastName, actualLastNameResults, "Verify Last Name.");
     }
 }

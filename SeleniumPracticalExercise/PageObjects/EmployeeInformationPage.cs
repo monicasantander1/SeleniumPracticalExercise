@@ -26,8 +26,7 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// search for employee ID field and insert stored ID
-        /// then we click search button
+        /// search for employee ID textbox field and insert ID
         /// </summary>
         /// <param name="storeEmployeeID"></param>
         public void SetEmployeeIdField(string storeEmployeeID)
@@ -37,25 +36,28 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        ///  Grabbing the Text from the ID in the search results to verify
+        /// Grabbing the text from ID in the search results
         /// </summary>
-        public string EmployeeIdSearchResults()
+        /// <returns></returns>
+        public string GetEmployeeIdSearchResults()
         {
             return GetText(_idResultsLocator);
         }
 
         /// <summary>
-        ///  Grabbing the text from the first name in search result to verify
+        /// Grabbing the text from first name in search result
         /// </summary>
-        public string FirstNameSearchResults()
+        /// <returns></returns>
+        public string GetFirstNameSearchResults()
         {
             return GetText(_firstNameResultsLocator);
         }
 
         /// <summary>
-        ///  Grabbing the text from the last name in search result to verify
+        /// Grabbing the text from last name in search result
         /// </summary>
-        public string LastNameSearchResults()
+        /// <returns></returns>
+        public string GetLastNameSearchResults()
         {
             return GetText(_lastNameResultsLocator);
         }

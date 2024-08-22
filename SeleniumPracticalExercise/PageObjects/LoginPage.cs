@@ -14,8 +14,10 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// Enter (SendKeys) for username and password then Click Submit button
+        /// Enter username and password 
         /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         public void Login(string username, string password)
         {
             SendKeys(_userNameFieldLocator, username);  
