@@ -19,21 +19,21 @@ namespace SeleniumPracticalExercise.PageObjects
         /// <summary>
         /// Enter First and Last name
         /// </summary>
-        /// <param name="firstname"></param>
-        /// <param name="lastname"></param>
-        public void SetNames(string firstname, string lastname)
+        /// <param name="firstName">we store firstName.</param>
+        /// <param name="lastName">we store lastName.</param>
+        public void SetNames(string firstName, string lastName)
         {
-            SendKeys(_firstNameFieldLocator, firstname);
-            SendKeys(_lastNameFieldLocator, lastname);
+            SendKeys(_firstNameFieldLocator, firstName);
+            SendKeys(_lastNameFieldLocator, lastName);
             IWebElement saveButton = Driver.FindElement(_saveButtonLocator);
             Click(_saveButtonLocator);
             new WebDriverWait(Driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.StalenessOf(saveButton));
         }
 
         /// <summary>
-        /// get Employee Id value & returns Id #
+        /// Returns the employee ID
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The Id value contained in the employee id field./</returns>
         public string GetEmployeeId() 
         {                 
             return GetValue(_employeeIdLocator); 

@@ -14,13 +14,13 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// Enter username and password 
+        /// Logs in using provided username and password
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        public void Login(string username, string password)
+        /// <param name="userName">we store username.</param>
+        /// <param name="password"> we store password.</param>
+        public void Login(string userName, string password)
         {
-            SendKeys(_userNameFieldLocator, username);  
+            SendKeys(_userNameFieldLocator, userName);  
             SendKeys(_passwordFieldLocator, password);
             Click(_submitButtonLocator);
         }

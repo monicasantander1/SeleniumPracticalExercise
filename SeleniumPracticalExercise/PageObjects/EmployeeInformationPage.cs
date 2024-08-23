@@ -26,37 +26,37 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// search for employee ID textbox field and insert ID
+        /// Sets the employee Id to employeeId
         /// </summary>
-        /// <param name="storeEmployeeID"></param>
-        public void SetEmployeeIdField(string storeEmployeeID)
+        /// <param name="employeeId"> We are storing the locator id here. </param>
+        public void SetEmployeeId(string employeeId)
         {
-            EditBoxSendKeysAndVerify(_employeeIdFieldLocator, storeEmployeeID);
+            EditBoxSendKeysAndVerify(_employeeIdFieldLocator, employeeId);
             Click(_searchButtonLocator);
         }
 
         /// <summary>
-        /// Grabbing the text from ID in the search results
+        /// Gets the employee ID from search results
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The text in the Employeeid field.</returns>
         public string GetEmployeeIdSearchResults()
         {
             return GetText(_idResultsLocator);
         }
 
         /// <summary>
-        /// Grabbing the text from first name in search result
+        /// Gets the first name from search result
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The text in the first name field.</returns>
         public string GetFirstNameSearchResults()
         {
             return GetText(_firstNameResultsLocator);
         }
 
         /// <summary>
-        /// Grabbing the text from last name in search result
+        /// Gets the last name from search result
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The text in the Last Name field.</returns>
         public string GetLastNameSearchResults()
         {
             return GetText(_lastNameResultsLocator);
