@@ -19,8 +19,8 @@ namespace SeleniumPracticalExercise.PageObjects
         /// <summary>
         /// Enter First and Last name
         /// </summary>
-        /// <param name="firstName">we store firstName.</param>
-        /// <param name="lastName">we store lastName.</param>
+        /// <param name="firstName">The firstName used to find element .</param>
+        /// <param name="lastName">The lastName used to find element.</param>
         public void SetNames(string firstName, string lastName)
         {
             SendKeys(_firstNameFieldLocator, firstName);
@@ -33,7 +33,7 @@ namespace SeleniumPracticalExercise.PageObjects
         /// <summary>
         /// Returns the employee ID
         /// </summary>
-        /// <returns>The Id value contained in the employee id field./</returns>
+        /// <returns>The Employee ID./</returns>
         public string GetEmployeeId() 
         {                 
             return GetValue(_employeeIdLocator); 
