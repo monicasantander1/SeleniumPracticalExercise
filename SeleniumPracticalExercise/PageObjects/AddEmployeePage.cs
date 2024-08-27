@@ -17,7 +17,7 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// Adding an Employee's name
+        /// Adds an Employee
         /// </summary>
         /// <param name="firstName">The employee's first name.</param>
         /// <param name="lastName">The employee's last name.</param>
