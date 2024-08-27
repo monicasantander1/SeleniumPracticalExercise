@@ -1,31 +1,43 @@
 ﻿using NUnit.Framework;
+using SeleniumPracticalExercise.Common;
+using SeleniumPracticalExercise.PageObjects;
 using SeleniumPracticalExercise.TestCases.Common;
 
-namespace SeleniumPracticalExercise.TestCases
-{
-    class AddEmployee : BaseTestLocal
+class AddEmployee : BaseTestLocal
     {
         [Test]
         [Category("Add Employee")]
         public void AddEmployeeTest()
         {
-            // Steps to automate:
-            // 1. Navigate to https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-            // 2. Log in using Username: Admin, Password: admin123
-            // 3. Click "PIM" in the left nav
-            // 4. Click "+Add"
-            // 5. Randomly generate a first name (6 characters) and last name (8 characters) and enter them into the form
-            // 6. Get the Employee Id for use later
-            // 7. Click Save
-            // 8. Click "PIM" in the left nav
-            // 8. Search for the employee you just created by Employee Id
-            // 9. In the employee search results, use NUnit asserts to validate that Id, First Name, and Last Name are correct
-            //
-            // NOTE:
-            // - Use the provided WebDriver methods in BasePageLocal.cs
-            // - Create page objects as needed
-            // - Document all methods using XML documentation, https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/
+            string username = "Admin"; 
+            string password = "admin123"; 
+            string firstName = Utils.GenerateRandomString(6); 
+            string lastName = Utils.GenerateRandomString(8);
 
-        }
+            Driver.Value.Navigate().GoToUrl("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+            new LoginPage(Driver.Value).Login(username, password); 
+
+            LeftNavPanel leftNavPanel = new LeftNavPanel(Driver.Value);
+            leftNavPanel.ClickPim();
+
+            EmployeeInformationPage employeeInformationPage = new EmployeeInformationPage(Driver.Value);
+            employeeInformationPage.ClickAdd();
+
+            AddEmployeePage addEmployeePage = new AddEmployeePage(Driver.Value);
+            string employeeId = addEmployeePage.GetEmployeeId();
+            addEmployeePage.AddEmployee(firstName, lastName);      
+
+            leftNavPanel.ClickPim();
+
+            employeeInformationPage.SearchById(employeeId);
+
+            string actualIdResults = employeeInformationPage.GetEmployeeIdSearchResults();
+            string actualFirstNameResults = employeeInformationPage.GetFirstNameSearchResults();
+            string actualLastNameResults = employeeInformationPage.GetLastNameSearchResults();
+            
+            Assert.AreEqual(employeeId, actualIdResults, "Verify Employee ID.");
+            Assert.AreEqual(firstName, actualFirstNameResults, "Verify First Name.");
+            Assert.AreEqual(lastName, actualLastNameResults, "Verify Last Name.");
     }
 }

@@ -92,7 +92,6 @@ namespace SeleniumPracticalExercise.PageObjects.Common
                     // do nothing, loop again
                 }
             }
-
             throw new Exception($"Not able to get 'value' from element <{locator}> within {timeOut}s.");
         }
 
@@ -139,7 +138,6 @@ namespace SeleniumPracticalExercise.PageObjects.Common
                     // do nothing, loop again
                 }
             }
-
             throw new Exception($"Not able to .SendKeys() to element <{locator}> within {timeOut}s.");
         }
 
@@ -205,7 +203,6 @@ namespace SeleniumPracticalExercise.PageObjects.Common
                     // do nothing, loop again
                 }
             }
-
             throw new Exception($"Not able to get .Text from element <{locator}> within {timeOut}s.");
         }
 
