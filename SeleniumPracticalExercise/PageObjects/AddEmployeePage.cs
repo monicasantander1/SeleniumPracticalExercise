@@ -21,7 +21,7 @@ namespace SeleniumPracticalExercise.PageObjects
         /// </summary>
         /// <param name="firstName">The employee's first name.</param>
         /// <param name="lastName">The employee's last name.</param>
-        public void SetNames(string firstName, string lastName)
+        public void GetNames(string firstName, string lastName)
         {
             SendKeys(_firstNameFieldLocator, firstName);
             SendKeys(_lastNameFieldLocator, lastName);
