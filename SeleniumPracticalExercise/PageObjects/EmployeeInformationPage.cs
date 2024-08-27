@@ -8,9 +8,9 @@ namespace SeleniumPracticalExercise.PageObjects
     {
         private readonly By _addButtonLocator = By.CssSelector("div.orangehrm-header-container > button");
         private readonly By _employeeIdFieldLocator = By.CssSelector("div.oxd-input-group input.oxd-input");
-        private readonly By _firstNameResultsLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][3]/div");
-        private readonly By _idResultsLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][2]/div");
-        private readonly By _lastNameResultsLocator = By.XPath("//div[contains(@class,'oxd-table-row--clickable')]//div[text()=''][4]/div");
+        private readonly By _firstNameResultsLocator = By.CssSelector("div.oxd-table-cell:nth-child(3)");
+        private readonly By _idResultsLocator = By.CssSelector("div.oxd-table-cell:nth-child(2)");
+        private readonly By _lastNameResultsLocator = By.CssSelector("div.oxd-table-cell:nth-child(4)");
         private readonly By _searchButtonLocator = By.CssSelector("button[type='submit']");
 
         public EmployeeInformationPage(IWebDriver driver) : base(driver)
@@ -26,9 +26,9 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// Sets the employee ID to the provided value
+        /// Searches for an employee by employee ID
         /// </summary>
-        /// <param name="employeeId">The employeeId used to find element.</param>
+        /// <param name="employeeId">The employee's ID.</param>
         public void SearchById(string employeeId)
         {
             EditBoxSendKeysAndVerify(_employeeIdFieldLocator, employeeId);
@@ -38,7 +38,7 @@ namespace SeleniumPracticalExercise.PageObjects
         /// <summary>
         /// Returns the employee ID from search results
         /// </summary>
-        /// <returns>The Employeeid Id.</returns>
+        /// <returns>The Employee Id.</returns>
         public string GetEmployeeIdSearchResults()
         {
             return GetText(_idResultsLocator);
