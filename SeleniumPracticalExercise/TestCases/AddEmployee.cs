@@ -26,7 +26,7 @@ class AddEmployee : BaseTestLocal
 
             AddEmployeePage addEmployeePage = new AddEmployeePage(Driver.Value);
             string employeeId = addEmployeePage.GetEmployeeId();
-            addEmployeePage.GetNames(firstName, lastName);      
+            addEmployeePage.AddEmployee(firstName, lastName);      
 
             leftNavPanel.ClickPim();
 

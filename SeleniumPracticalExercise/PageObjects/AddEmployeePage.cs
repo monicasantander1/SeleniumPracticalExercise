@@ -17,11 +17,11 @@ namespace SeleniumPracticalExercise.PageObjects
         }
 
         /// <summary>
-        /// Enter First and Last name
+        /// Adding an Employee's name
         /// </summary>
         /// <param name="firstName">The employee's first name.</param>
         /// <param name="lastName">The employee's last name.</param>
-        public void GetNames(string firstName, string lastName)
+        public void AddEmployee(string firstName, string lastName)
         {
             SendKeys(_firstNameFieldLocator, firstName);
             SendKeys(_lastNameFieldLocator, lastName);
